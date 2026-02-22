@@ -1,5 +1,6 @@
 // Prisma Schema for Kholo & May Boutique
-// Supports: Azure SQL Database, SQL Server, SQLite (development)
+// Optimized for Azure SQL Database Free Tier
+// Note: SQL Server doesn't support enums, so we use String with validation
 
 generator client {
   provider = "prisma-client-js"
@@ -21,7 +22,7 @@ model User {
   firstName     String
   lastName      String
   phone         String?
-  role          Role      @default(CUSTOMER)
+  role          String    @default("CUSTOMER") // CUSTOMER, ADMIN
   emailVerified DateTime?
   image         String?
   createdAt     DateTime  @default(now())
@@ -35,11 +36,6 @@ model User {
   wishlists     Wishlist[]
 
   @@map("users")
-}
-
-enum Role {
-  CUSTOMER
-  ADMIN
 }
 
 model Address {
@@ -61,7 +57,6 @@ model Address {
 
   // Relations
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  orders          Order[]
 
   @@map("addresses")
 }
@@ -71,19 +66,19 @@ model Address {
 // ===========================================
 
 model Category {
-  id          String    @id @default(uuid())
-  name        String    @unique
-  slug        String    @unique
+  id          String     @id @default(uuid())
+  name        String     @unique
+  slug        String     @unique
   description String?
   image       String?
   parentId    String?
-  sortOrder   Int       @default(0)
-  isActive    Boolean   @default(true)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  sortOrder   Int        @default(0)
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
 
   // Relations
-  parent      Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  parent      Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   children    Category[] @relation("CategoryHierarchy")
   products    Product[]
 
@@ -101,7 +96,7 @@ model Product {
   comparePrice    Decimal?      @db.Decimal(10, 2)
   costPrice       Decimal?      @db.Decimal(10, 2)
   stockQuantity   Int           @default(0)
-  stockStatus     StockStatus   @default(IN_STOCK)
+  stockStatus     String        @default("IN_STOCK") // IN_STOCK, LOW_STOCK, OUT_OF_STOCK, ON_BACKORDER
   weight          Decimal?      @db.Decimal(8, 2)
   dimensions      String?       // "LxWxH" in cm
   categoryId      String?
@@ -116,7 +111,7 @@ model Product {
   updatedAt       DateTime      @updatedAt
 
   // Relations
-  category        Category?     @relation(fields: [categoryId], references: [id])
+  category        Category?     @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   images          ProductImage[]
   cartItems       CartItem[]
   orderItems      OrderItem[]
@@ -126,13 +121,6 @@ model Product {
   @@index([categoryId])
   @@index([slug])
   @@map("products")
-}
-
-enum StockStatus {
-  IN_STOCK
-  LOW_STOCK
-  OUT_OF_STOCK
-  ON_BACKORDER
 }
 
 model ProductImage {
@@ -179,8 +167,8 @@ model Order {
   id                String        @id @default(uuid())
   orderNumber       String        @unique
   userId            String
-  status            OrderStatus   @default(PENDING)
-  paymentStatus     PaymentStatus @default(PENDING)
+  status            String        @default("PENDING") // PENDING, CONFIRMED, PROCESSING, SHIPPED, DELIVERED, CANCELLED, REFUNDED
+  paymentStatus     String        @default("PENDING") // PENDING, PROCESSING, PAID, FAILED, REFUNDED, PARTIALLY_REFUNDED
   paymentMethod     String?
   paymentReference  String?
   
@@ -234,25 +222,6 @@ model Order {
   @@map("orders")
 }
 
-enum OrderStatus {
-  PENDING
-  CONFIRMED
-  PROCESSING
-  SHIPPED
-  DELIVERED
-  CANCELLED
-  REFUNDED
-}
-
-enum PaymentStatus {
-  PENDING
-  PROCESSING
-  PAID
-  FAILED
-  REFUNDED
-  PARTIALLY_REFUNDED
-}
-
 model OrderItem {
   id              String   @id @default(uuid())
   orderId         String
@@ -267,21 +236,21 @@ model OrderItem {
 
   // Relations
   order           Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  product         Product  @relation(fields: [productId], references: [id])
+  product         Product  @relation(fields: [productId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([orderId])
   @@map("order_items")
 }
 
 model OrderStatusHistory {
-  id          String      @id @default(uuid())
+  id          String   @id @default(uuid())
   orderId     String
-  status      OrderStatus
+  status      String
   comment     String?
-  createdAt   DateTime    @default(now())
+  createdAt   DateTime @default(now())
 
   // Relations
-  order       Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
 
   @@index([orderId])
   @@map("order_status_history")
@@ -337,7 +306,7 @@ model Coupon {
   id              String        @id @default(uuid())
   code            String        @unique
   description     String?
-  discountType    DiscountType
+  discountType    String        // PERCENTAGE, FIXED_AMOUNT
   discountValue   Decimal       @db.Decimal(10, 2)
   minOrderAmount  Decimal?      @db.Decimal(10, 2)
   maxDiscount     Decimal?      @db.Decimal(10, 2)
@@ -350,11 +319,6 @@ model Coupon {
   updatedAt       DateTime      @updatedAt
 
   @@map("coupons")
-}
-
-enum DiscountType {
-  PERCENTAGE
-  FIXED_AMOUNT
 }
 
 // ===========================================
