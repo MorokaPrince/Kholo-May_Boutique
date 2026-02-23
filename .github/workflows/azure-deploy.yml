@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: 'kholomayboutique'
+  AZURE_WEBAPP_NAME: 'kholo-may-boutique'
   AZURE_WEBAPP_PACKAGE_PATH: '.'
   NODE_VERSION: '18.x'
 
