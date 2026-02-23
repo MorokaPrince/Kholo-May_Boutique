@@ -1,6 +1,60 @@
-# Kholo & May Boutique - Azure Deployment Guide
+# Kholo & May Boutique - Deployment Guide
 
-This guide provides step-by-step instructions for deploying the e-commerce platform to Microsoft Azure Free Tier.
+This guide provides step-by-step instructions for deploying the e-commerce platform.
+
+> **⚠️ IMPORTANT: Azure Free Tier Limitations**
+> 
+> The Azure App Service F1 Free Tier has significant limitations:
+> - **60 minutes of CPU time per day** - This is easily exceeded during deployment and startup
+> - **Cold starts** can take 5-10 minutes
+> - **Limited memory** (1 GB) may cause issues with Next.js standalone builds
+> 
+> **Recommended Alternatives:**
+> 1. **Vercel (Recommended)** - Best for Next.js, generous free tier
+> 2. **Azure Basic Tier (B1)** - Paid option (~$13/month) with better resources
+> 3. **Railway** - Simple deployment with free tier
+> 4. **Render** - Free tier available for web services
+
+---
+
+## Quick Deploy Options
+
+### Option A: Vercel (Recommended for Next.js)
+
+Vercel is the creator of Next.js and offers the best deployment experience:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Follow prompts to link/create project
+# Set environment variables in Vercel dashboard
+```
+
+**Vercel Free Tier Includes:**
+- 100 GB bandwidth/month
+- Unlimited deployments
+- Automatic HTTPS
+- Preview deployments
+- Serverless functions
+
+### Option B: Azure App Service (Paid Tier Recommended)
+
+For Azure deployment, we recommend upgrading to Basic (B1) tier:
+
+```bash
+# Create App Service Plan (Basic Tier - ~$13/month)
+az appservice plan create \
+  --name kholo-may-boutique-plan \
+  --resource-group kholo-may-boutique-rg \
+  --sku B1 \
+  --is-linux
+```
+
+---
 
 ## Table of Contents
 
