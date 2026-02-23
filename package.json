@@ -2,10 +2,11 @@
   "name": "kholo-may-boutique",
   "version": "1.0.0",
   "private": true,
+  "main": "server.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "node .next/standalone/server.js",
+    "start": "node server.js",
     "lint": "next lint",
     "postinstall": "prisma generate"
   },

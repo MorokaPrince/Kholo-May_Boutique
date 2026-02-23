@@ -1,7 +1,8 @@
 // Custom server entry point for Azure Web Apps
-// This file bridges Azure's expectation of server.js with Next.js standalone
+// This bridges Azure's expectation of server.js with Next.js standalone
 
 const path = require('path');
+const fs = require('fs');
 
 // Set required environment variables
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
@@ -9,40 +10,43 @@ process.env.PORT = process.env.PORT || 3000;
 process.env.HOSTNAME = process.env.HOSTNAME || '0.0.0.0';
 
 // For Next.js standalone, the server is at .next/standalone/server.js
-// We need to copy static files and public folder
-const fs = require('fs');
-const fse = require('fs-extra');
-
-// Copy static files if they exist (for standalone mode)
 const standalonePath = path.join(__dirname, '.next', 'standalone');
-const staticPath = path.join(__dirname, '.next', 'static');
-const publicPath = path.join(__dirname, 'public');
+const standaloneServerPath = path.join(standalonePath, 'server.js');
 
 // Check if standalone exists
-if (fs.existsSync(standalonePath)) {
-  // Copy static folder to standalone
-  const standaloneStaticPath = path.join(standalonePath, '.next', 'static');
-  if (fs.existsSync(staticPath)) {
-    fse.copySync(staticPath, standaloneStaticPath, { overwrite: true });
-    console.log('Copied .next/static to standalone');
+if (fs.existsSync(standaloneServerPath)) {
+  console.log('Found standalone server at:', standaloneServerPath);
+  
+  // Copy static files if they exist
+  const staticSrc = path.join(__dirname, '.next', 'static');
+  const staticDest = path.join(standalonePath, '.next', 'static');
+  
+  if (fs.existsSync(staticSrc) && !fs.existsSync(staticDest)) {
+    console.log('Copying static files...');
+    fs.cpSync(staticSrc, staticDest, { recursive: true });
   }
   
-  // Copy public folder to standalone
-  const standalonePublicPath = path.join(standalonePath, 'public');
-  if (fs.existsSync(publicPath)) {
-    fse.copySync(publicPath, standalonePublicPath, { overwrite: true });
-    console.log('Copied public to standalone');
+  // Copy public folder if it exists
+  const publicSrc = path.join(__dirname, 'public');
+  const publicDest = path.join(standalonePath, 'public');
+  
+  if (fs.existsSync(publicSrc) && !fs.existsSync(publicDest)) {
+    console.log('Copying public files...');
+    fs.cpSync(publicSrc, publicDest, { recursive: true });
   }
   
-  // Now require the standalone server
-  require(path.join(standalonePath, 'server.js'));
+  // Change to standalone directory and require the server
+  process.chdir(standalonePath);
+  require('./server.js');
 } else {
+  console.log('No standalone server found, using regular Next.js...');
+  
   // Fallback to regular Next.js server
   const { createServer } = require('http');
   const { parse } = require('url');
   const next = require('next');
   
-  const app = next({ dev: false, hostname: process.env.HOSTNAME, port: process.env.PORT });
+  const app = next({ dev: false, hostname: process.env.HOSTNAME, port: parseInt(process.env.PORT) });
   const handle = app.getRequestHandler();
   
   app.prepare().then(() => {
@@ -60,7 +64,7 @@ if (fs.existsSync(standalonePath)) {
         console.error(err);
         process.exit(1);
       })
-      .listen(process.env.PORT, () => {
+      .listen(parseInt(process.env.PORT), () => {
         console.log(`> Ready on http://${process.env.HOSTNAME}:${process.env.PORT}`);
       });
   });
