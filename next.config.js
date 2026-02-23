@@ -1,15 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   images: {
-    domains: [
-      'localhost',
-      'kholomayboutique.blob.core.windows.net',
-      'kholomayboutique.azurewebsites.net'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.blob.core.windows.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'kholomaystorage.blob.core.windows.net',
+      },
     ],
-    formats: ['image/avif', 'image/webp'],
-  },
-  experimental: {
-    serverComponentsExternalPackages: ['@prisma/client'],
   },
   async headers() {
     return [
@@ -17,16 +19,16 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
             key: 'X-Frame-Options',
             value: 'DENY',
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
           },
         ],
       },
