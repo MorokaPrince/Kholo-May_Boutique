@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a1942;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6b2c5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b3a6e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fabricGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f9a8d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad3)"/>
+  <!-- Fashion/Dress Silhouette -->
+  <g transform="translate(850, 150)">
+    <path d="M110 0 L140 0 L150 50 L100 50 Z" fill="url(#fabricGrad)"/>
+    <path d="M100 50 Q60 80 50 150 L70 150 Q80 100 100 80 L120 80 Q140 100 150 150 L170 150 Q160 80 120 50 Z" fill="url(#fabricGrad)"/>
+    <path d="M70 150 Q50 250 30 400 L190 400 Q170 250 150 150 Z" fill="url(#fabricGrad)" opacity="0.9"/>
+    <path d="M50 400 Q30 450 20 500 L200 500 Q190 450 170 400 Z" fill="#ec4899" opacity="0.8"/>
+  </g>
+  <!-- Decorative Elements -->
+  <circle cx="200" cy="200" r="100" fill="#ec4899" opacity="0.1"/>
+  <circle cx="1700" cy="800" r="150" fill="#f9a8d4" opacity="0.1"/>
+  <circle cx="300" cy="900" r="80" fill="#ec4899" opacity="0.05"/>
+  <!-- Text Area -->
+  <text x="960" y="700" font-family="Georgia, serif" font-size="80" fill="white" text-anchor="middle" opacity="0.9">EXCLUSIVE FASHION</text>
+  <text x="960" y="780" font-family="Arial, sans-serif" font-size="24" fill="#f9a8d4" text-anchor="middle" opacity="0.8">Our Brand Collection</text>
+</svg>

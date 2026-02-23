@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d5c3d;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0a7b4f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aloeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6ee7b7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad2)"/>
+  <!-- Aloe Vera Plant -->
+  <g transform="translate(850, 250)">
+    <ellipse cx="110" cy="400" rx="150" ry="30" fill="#064e3b" opacity="0.5"/>
+    <path d="M110 400 Q80 300 60 200 Q50 150 70 100 Q90 150 100 200 Q110 300 110 400" fill="url(#aloeGrad)" opacity="0.9"/>
+    <path d="M110 400 Q140 300 160 200 Q170 150 150 100 Q130 150 120 200 Q110 300 110 400" fill="url(#aloeGrad)" opacity="0.9"/>
+    <path d="M110 400 Q70 320 30 260 Q10 220 30 180 Q60 220 80 260 Q100 320 110 400" fill="#10b981" opacity="0.8"/>
+    <path d="M110 400 Q150 320 190 260 Q210 220 190 180 Q160 220 140 260 Q120 320 110 400" fill="#10b981" opacity="0.8"/>
+    <path d="M110 400 Q60 340 10 300 Q-20 270 0 240 Q40 270 60 300 Q90 340 110 400" fill="#059669" opacity="0.7"/>
+    <path d="M110 400 Q160 340 210 300 Q240 270 220 240 Q180 270 160 300 Q130 340 110 400" fill="#059669" opacity="0.7"/>
+  </g>
+  <!-- Decorative Elements -->
+  <circle cx="200" cy="200" r="100" fill="#10b981" opacity="0.1"/>
+  <circle cx="1700" cy="800" r="150" fill="#10b981" opacity="0.1"/>
+  <!-- Text Area -->
+  <text x="960" y="700" font-family="Georgia, serif" font-size="80" fill="white" text-anchor="middle" opacity="0.9">FOREVER LIVING</text>
+  <text x="960" y="780" font-family="Arial, sans-serif" font-size="24" fill="#6ee7b7" text-anchor="middle" opacity="0.8">Natural Aloe Vera Wellness</text>
+</svg>
