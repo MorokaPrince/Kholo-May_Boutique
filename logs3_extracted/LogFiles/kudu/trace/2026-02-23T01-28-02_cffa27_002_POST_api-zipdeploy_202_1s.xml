@@ -1,0 +1,17 @@
+<step title="Incoming Request" date="2026-02-23T01:28:02.284" instance="cffa27" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="831,1,5" Accept="*/*" Host="kholo-may-boutique.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="gzip, deflate" Authorization="Bea..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="9016367" x-ms-client-request-id="b91d5abb-1056-11f1-9e50-c0b5d71b77b6" x-ms-artifact-checksum="064b1ad52c989fe1193cd8b01a36e14d45ef22d164cc49233ebc70a4d5542c3e" X-ARR-LOG-ID="b91d5abb-1056-11f1-9e50-c0b5d71b77b6" CLIENT-IP="105.245.240.153:40617" X-SITE-DEPLOYMENT-ID="kholo-may-boutique" WAS-DEFAULT-HOSTNAME="kholo-may-boutique.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="105.245.240.153" X-Client-Port="40617" >
+  <step title="ZipPushDeploy" date="2026-02-23T01:28:02.817" >
+    <step title="ZipDeploy. Extract zip." date="2026-02-23T01:28:02.837" /><!-- duration: 7ms -->
+    <step title="None repository commit" date="2026-02-23T01:28:02.854" >
+      <step title="Commit id: e4bde6d9-804c-4ab1-8f45-35fdf2ca77f6" date="2026-02-23T01:28:02.859" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 6ms -->
+    </step><!-- duration: 16ms -->
+    <step title="Starting PushDeployAsync" date="2026-02-23T01:28:02.875" /><!-- duration: 10ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/51644137-8826-448f-927e-a97c9c3bf6e4.zip" date="2026-02-23T01:28:02.902" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/51644137-8826-448f-927e-a97c9c3bf6e4.zip" date="2026-02-23T01:28:02.908" /><!-- duration: 5ms -->
+    </step><!-- duration: 173ms -->
+    <step title="Start deployment in the background" date="2026-02-23T01:28:03.091" >
+      <step title="Acquiring Deployment Lock" date="2026-02-23T01:28:03.121" /><!-- duration: 6ms -->
+      <step title="Acquired Deployment Lock" date="2026-02-23T01:28:03.392" /><!-- duration: 11ms -->
+    </step><!-- duration: 418ms -->
+  </step><!-- duration: 703ms -->
+  <step title="Outgoing response" date="2026-02-23T01:28:03.533" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 6ms -->
+</step><!-- duration: 1262ms -->

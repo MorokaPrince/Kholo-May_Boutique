@@ -1,0 +1,15 @@
+<step title="Incoming Request" date="2026-02-23T17:22:38.151" instance="c8e42a" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="834,1,18" Accept="*/*" Host="kholo-may-boutique.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="gzip, deflate" Authorization="Bea..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="9579621" x-ms-client-request-id="f26e2ad1-10db-11f1-b480-c0b5d71b77b6" x-ms-artifact-checksum="ec38f3c6108a81b8eba94292d081f1d4f7e84f14496160e8c0e2487de0fec6c0" X-ARR-LOG-ID="f26e2ad1-10db-11f1-b480-c0b5d71b77b6" CLIENT-IP="105.245.240.153:35173" X-SITE-DEPLOYMENT-ID="kholo-may-boutique" WAS-DEFAULT-HOSTNAME="kholo-may-boutique.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="105.245.240.153" X-Client-Port="35173" >
+  <step title="Cleanup Xml Logs" date="2026-02-23T17:22:38.166" /><!-- duration: 8ms -->
+  <step title="ZipPushDeploy" date="2026-02-23T17:22:38.239" >
+    <step title="ZipDeploy. Extract zip." date="2026-02-23T17:22:38.251" /><!-- duration: 8ms -->
+    <step title="Starting PushDeployAsync" date="2026-02-23T17:22:38.272" /><!-- duration: 4ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/38371ba6-256d-42ac-886e-7ff74c4ee03c.zip" date="2026-02-23T17:22:38.291" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/38371ba6-256d-42ac-886e-7ff74c4ee03c.zip" date="2026-02-23T17:22:38.296" /><!-- duration: 12ms -->
+    </step><!-- duration: 5868ms -->
+    <step title="Start deployment in the background" date="2026-02-23T17:22:44.189" >
+      <step title="Acquiring Deployment Lock" date="2026-02-23T17:22:44.320" /><!-- duration: 20ms -->
+      <step title="Acquired Deployment Lock" date="2026-02-23T17:22:44.389" /><!-- duration: 4ms -->
+    </step><!-- duration: 297ms -->
+  </step><!-- duration: 6255ms -->
+  <step title="Outgoing response" date="2026-02-23T17:22:44.509" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 10ms -->
+</step><!-- duration: 6372ms -->
