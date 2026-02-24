@@ -1,9 +1,0 @@
-<step title="Incoming Request" date="2026-02-23T18:32:23.301" instance="c8e42a" url="/api/deployments/latest" method="GET" type="request" pid="833,1,45" Accept="*/*" Host="kholo-may-boutique.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="gzip, deflate" Authorization="Bea..." x-ms-client-request-id="c68d9dd2-10e5-11f1-b139-c0b5d71b77b6" X-ARR-LOG-ID="c68d9dd2-10e5-11f1-b139-c0b5d71b77b6" CLIENT-IP="105.245.240.153:57924" X-SITE-DEPLOYMENT-ID="kholo-may-boutique" WAS-DEFAULT-HOSTNAME="kholo-may-boutique.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest" X-Client-IP="105.245.240.153" X-Client-Port="57924" >
-  <step title="Cleanup Xml Logs" date="2026-02-23T18:32:23.320" /><!-- duration: 143ms -->
-  <step title="DeploymentService.GetResult" date="2026-02-23T18:32:23.695" >
-    <step title="DeploymentService.GetLatestDeployment" date="2026-02-23T18:32:23.752" >
-      <step title="DeploymentManager.GetResults" date="2026-02-23T18:32:23.794" /><!-- duration: 1379ms -->
-    </step><!-- duration: 1460ms -->
-  </step><!-- duration: 1587ms -->
-  <step title="Outgoing response" date="2026-02-23T18:32:25.365" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 29ms -->
-</step><!-- duration: 2154ms -->
