@@ -37,7 +37,7 @@ if (fs.existsSync(standaloneServerPath)) {
   
   // Change to standalone directory and require the server
   process.chdir(standalonePath);
-  require('./server.js');
+  require(standaloneServerPath);
 } else {
   console.log('No standalone server found, using regular Next.js...');
   
