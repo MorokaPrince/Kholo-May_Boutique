@@ -3,45 +3,45 @@ import Link from 'next/link';
 import { ProductCard } from '@/components/product/ProductCard';
 
 // ===========================================
-// Mock Best Sellers
+// Best Sellers - Real Catalog
 // ===========================================
 
 const bestSellers = [
   {
-    id: '9',
-    name: 'YSL Libre Eau de Parfum',
-    slug: 'ysl-libre-eau-de-parfum',
-    price: 2450,
-    image: '/images/products/perfume-5.jpg',
-    category: 'Perfumes',
+    id: 'as-002',
+    name: 'Musk Al Arab',
+    slug: 'musk-al-arab',
+    price: 650,
+    image: '/images/products/arabic-scents/IMG-20260121-WA0061.jpg',
+    category: 'Arabic Scents',
     isBestSeller: true,
   },
   {
-    id: '10',
-    name: 'Forever Living Aloe Vera Gelly',
-    slug: 'forever-living-aloe-vera-gelly',
+    id: 'fl-004',
+    name: 'Aloe Vera Gelly',
+    slug: 'aloe-vera-gelly',
     price: 320,
-    image: '/images/products/aloe-3.jpg',
+    image: '/images/products/forever-living/IMG-20260123-WA0053.jpg',
     category: 'Forever Living',
     isBestSeller: true,
   },
   {
-    id: '11',
-    name: 'Cashmere Wrap Coat',
-    slug: 'cashmere-wrap-coat',
-    price: 3200,
-    comparePrice: 3800,
-    image: '/images/products/clothing-2.jpg',
-    category: 'Clothing',
+    id: 'apc-002',
+    name: 'Cape Floral',
+    slug: 'cape-floral',
+    price: 580,
+    image: '/images/products/african-perfume-co/IMG-20250930-WA0048.jpg',
+    category: 'African Perfume Co',
     isBestSeller: true,
   },
   {
-    id: '12',
-    name: 'Creed Aventus',
-    slug: 'creed-aventus',
-    price: 4500,
-    image: '/images/products/perfume-6.jpg',
-    category: 'Perfumes',
+    id: 'as-004',
+    name: 'Amir Al Oud',
+    slug: 'amir-al-oud',
+    price: 1200,
+    comparePrice: 1400,
+    image: '/images/products/arabic-scents/IMG-20260121-WA0064.jpg',
+    category: 'Arabic Scents',
     isBestSeller: true,
   },
 ];

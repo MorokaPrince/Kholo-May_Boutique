@@ -4,30 +4,30 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 // ===========================================
-// Categories Data
+// Categories Data - Real Catalog
 // ===========================================
 
 const categories = [
   {
-    id: 'perfumes',
-    name: 'Perfumes',
-    description: 'Luxury fragrances from world-renowned brands',
-    image: '/images/categories/perfumes.jpg',
-    count: 45,
+    id: 'arabic-scents',
+    name: 'Arabic Scents',
+    description: 'Exotic Arabian fragrances - rich oud and musk-based perfumes',
+    image: '/images/products/arabic-scents/IMG-20260121-WA0060.jpg',
+    count: 8,
+  },
+  {
+    id: 'african-perfume-co',
+    name: 'African Perfume Co',
+    description: 'Proudly South African fragrances inspired by African botanicals',
+    image: '/images/products/african-perfume-co/IMG-20250930-WA0047.jpg',
+    count: 8,
   },
   {
     id: 'forever-living',
     name: 'Forever Living',
     description: 'Natural aloe vera wellness products',
-    image: '/images/categories/forever-living.jpg',
-    count: 32,
-  },
-  {
-    id: 'clothing',
-    name: 'Clothing',
-    description: 'Exclusive fashion from our own brand',
-    image: '/images/categories/clothing.jpg',
-    count: 28,
+    image: '/images/products/forever-living/IMG-20260123-WA0050.jpg',
+    count: 10,
   },
 ];
 

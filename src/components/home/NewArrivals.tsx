@@ -3,44 +3,47 @@ import Link from 'next/link';
 import { ProductCard } from '@/components/product/ProductCard';
 
 // ===========================================
-// Mock New Arrivals
+// New Arrivals - Real Catalog
 // ===========================================
 
 const newArrivals = [
   {
-    id: '5',
-    name: 'Tom Ford Black Orchid',
-    slug: 'tom-ford-black-orchid',
-    price: 3200,
-    image: '/images/products/perfume-3.jpg',
-    category: 'Perfumes',
+    id: 'as-001',
+    name: 'Oud Al Mubakhar',
+    slug: 'oud-al-mubakhar',
+    price: 850,
+    comparePrice: 950,
+    image: '/images/products/arabic-scents/IMG-20260121-WA0060.jpg',
+    category: 'Arabic Scents',
     isNew: true,
+    isBestSeller: true,
   },
   {
-    id: '6',
-    name: 'Forever Living Bee Pollen',
-    slug: 'forever-living-bee-pollen',
+    id: 'fl-003',
+    name: 'Forever Bee Pollen',
+    slug: 'forever-bee-pollen',
     price: 380,
-    image: '/images/products/aloe-2.jpg',
+    image: '/images/products/forever-living/IMG-20260123-WA0052.jpg',
     category: 'Forever Living',
     isNew: true,
   },
   {
-    id: '7',
-    name: 'Linen Blazer Set',
-    slug: 'linen-blazer-set',
-    price: 1650,
-    image: '/images/products/clothing-1.jpg',
-    category: 'Clothing',
+    id: 'apc-004',
+    name: 'Zulu Warrior',
+    slug: 'zulu-warrior',
+    price: 720,
+    comparePrice: 850,
+    image: '/images/products/african-perfume-co/IMG-20251022-WA0060.jpg',
+    category: 'African Perfume Co',
     isNew: true,
   },
   {
-    id: '8',
-    name: 'Jo Malone Peony & Blush Suede',
-    slug: 'jo-malone-peony-blush-suede',
-    price: 2800,
-    image: '/images/products/perfume-4.jpg',
-    category: 'Perfumes',
+    id: 'as-007',
+    name: 'Dehn Al Oud',
+    slug: 'dehn-al-oud',
+    price: 1800,
+    image: '/images/products/arabic-scents/IMG-20260123-WA0117.jpg',
+    category: 'Arabic Scents',
     isNew: true,
   },
 ];
