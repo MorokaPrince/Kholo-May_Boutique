@@ -74,6 +74,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    permissions:
+      id-token: write
+      contents: read
     
     steps:
       - name: Checkout code
@@ -85,19 +88,22 @@ jobs:
           name: build-artifact
 
       - name: Login to Azure
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_24FB3FC2C804441C91B9AFBCB294E922 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8EA38F96920F41AE9272F4510D582C42 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F26E5D1B0FA7481586A5141DAB888201 }}
 
       - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          slot-name: 'Production'
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
       - name: Run database migrations
         run: |
-          npm ci
+          npm install
           npx prisma migrate deploy
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
