@@ -14,7 +14,7 @@ on:
 env:
   AZURE_WEBAPP_NAME: 'kholo-may-boutique'
   AZURE_WEBAPP_PACKAGE_PATH: '.'
-  NODE_VERSION: '18.x'
+  NODE_VERSION: '20.x'
 
 jobs:
   build:
@@ -65,6 +65,10 @@ jobs:
             package.json
             package-lock.json
             prisma
+            server.js
+            .deployment
+            web.config
+            startup.sh
           retention-days: 1
 
   deploy:
